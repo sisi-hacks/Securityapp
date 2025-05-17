@@ -7,4 +7,9 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
+  base: '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  }
 });
