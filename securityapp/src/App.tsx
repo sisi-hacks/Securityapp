@@ -27,8 +27,8 @@ const maxRisk = 10;
 
 export default function App() {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
-  const currentTip = tips[currentTipIndex];
-  const relatedTips = getRelatedTips(currentTip);
+  const currentTip = tips.length > 0 ? tips[currentTipIndex] : undefined;
+  const relatedTips = currentTip ? getRelatedTips(currentTip) : [];
 
   const handleNext = () => {
     setCurrentTipIndex((prev) => (prev + 1) % tips.length);
@@ -37,13 +37,19 @@ export default function App() {
     setCurrentTipIndex((prev) => (prev - 1 + tips.length) % tips.length);
   };
   const handleShareTwitter = () => {
-    const text = encodeURIComponent(`Web3 Security Tip #${currentTip.id}: ${currentTip.text}`);
+    if (!currentTip) return;
+    const text = encodeURIComponent(`web3 security tip: ${currentTip.text}. follow A_bashira on twitter or sisixoxo for more security tips and insights.`);
     window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
   const handleShareFarcaster = () => {
-    const text = encodeURIComponent(`Web3 Security Tip #${currentTip.id}: ${currentTip.text}`);
+    if (!currentTip) return;
+    const text = encodeURIComponent(`web3 security tip: ${currentTip.text}. follow A_bashira on twitter or sisixoxo for more security tips and insights.`);
     window.open(`https://warpcast.com/~/compose?text=${text}`, '_blank');
   };
+
+  if (!currentTip) {
+    return <div style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>No tips available.</div>;
+  }
 
   return (
     <div style={{ minHeight: '100vh', background: '#181828', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 0 }}>

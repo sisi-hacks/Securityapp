@@ -8,8 +8,8 @@ app.use(express.json());
 
 app.post('/api/frame', async (req: Request, res: Response) => {
   try {
-    const { action, buttonIndex, inputText, state } = req.body;
-    const result = await handleFrameAction(action, buttonIndex, inputText, state);
+    const { buttonIndex, inputText, state } = req.body;
+    const result = await handleFrameAction(buttonIndex, inputText, state);
     res.json(result);
   } catch (error) {
     console.error('Frame action error:', error);

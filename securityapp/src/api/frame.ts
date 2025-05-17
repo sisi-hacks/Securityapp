@@ -1,7 +1,6 @@
 import { tips } from '../tips';
 
 export async function handleFrameAction(
-  action: string,
   buttonIndex: number,
   inputText?: string,
   state?: string

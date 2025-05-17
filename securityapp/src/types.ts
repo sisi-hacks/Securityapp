@@ -4,5 +4,5 @@ export interface SecurityTip {
   category: 'Wallet' | 'General' | 'DeFi' | 'NFT' | 'Social';
   importance: 'critical' | 'high' | 'medium' | 'low';
   tags: string[];
-  lastUpdated: string;
+  lastUpdated?: string;
 } 
