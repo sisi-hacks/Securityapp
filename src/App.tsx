@@ -1,15 +1,6 @@
 import { useState } from 'react';
 import { tips } from './tips';
 import './App.css';
-import { SecurityTip } from './types';
-
-function getRelatedTips(currentTip: SecurityTip) {
-  return tips.filter(
-    (tip) =>
-      tip.id !== currentTip.id &&
-      tip.tags.some((tag) => currentTip.tags.includes(tag))
-  ).slice(0, 2);
-}
 
 function getRiskColor(importance: string) {
   switch (importance) {
@@ -28,7 +19,6 @@ const maxRisk = 10;
 export default function App() {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   const currentTip = tips.length > 0 ? tips[currentTipIndex] : undefined;
-  const relatedTips = currentTip ? getRelatedTips(currentTip) : [];
 
   const handleNext = () => {
     setCurrentTipIndex((prev) => (prev + 1) % tips.length);
