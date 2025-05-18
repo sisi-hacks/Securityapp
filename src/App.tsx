@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { tips } from './tips';
 import './App.css';
+import { sdk } from "@farcaster/frame-sdk";
+import { useEffect } from "react";
 
 function getRiskColor(importance: string) {
   switch (importance) {
@@ -19,6 +21,10 @@ const maxRisk = 10;
 export default function App() {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   const currentTip = tips.length > 0 ? tips[currentTipIndex] : undefined;
+
+  useEffect(() => {
+    sdk.actions.ready();
+  }, []);
 
   const handleNext = () => {
     setCurrentTipIndex((prev) => (prev + 1) % tips.length);
