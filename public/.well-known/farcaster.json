@@ -1,1 +1,23 @@
-{}
+{
+  "name": "Web3 Security Tips",
+  "description": "Daily Web3 security tips and best practices",
+  "image": "https://your-domain.com/frame-image.png",
+  "input": {
+    "text": "Search tips by keyword"
+  },
+  "buttons": [
+    {
+      "label": "Previous Tip",
+      "action": "post"
+    },
+    {
+      "label": "Next Tip",
+      "action": "post"
+    },
+    {
+      "label": "Share Tip",
+      "action": "post"
+    }
+  ],
+  "post_url": "https://your-domain.com/api/frame"
+} 
