@@ -1,13 +1,13 @@
 {
   "accountAssociation": {
-    "header": "<BASE64_HEADER>",
-    "payload": "<BASE64_PAYLOAD with domain>",
-    "signature": "<BASE64_SIGNATURE>"
+    "header": "eyJmaWQiOjEwNDM2OTcsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhEZmU5ZWExRDM1OGRkRDdGNjk1M2JDY0QyM2Q4NjljRTIyOTIyQ2Y4In0",
+    "payload": "eyJkb21haW4iOiJzZWN1cml0eXdpdGhzaXNpLnZlcmNlbC5hcHAifQ",
+    "signature": "MHgwNjdjMWQ2YTQ0YWY1MGJkZDI4MDU2ZTZmNjI5ZjQ1NzBkMDc1ODA0ZGY5YzVkZmEwMDIwN2Y5MTIyMWQwODdjMmUzNmJjOGJkMzkxMWRiM2JlNzcxNTFjYTQ3YjE1ZDg1ZTkwYjNjZGYyYTY1MTc5MTViODQyOTQzOGNjOWFkZDFj"
   },
   "frame": {
     "version": "1",
     "name": "Web3 Security Tips",
-    "iconUrl": "https://securitywithsisi.vercel.app/icon-1024.png",
+    "iconUrl": "https://securitywithsisi.vercel.app/frame-image.png",
     "homeUrl": "https://securitywithsisi.vercel.app/",
     "splashImageUrl": "https://securitywithsisi.vercel.app/frame-image.png",
     "splashBackgroundColor": "#181828",
