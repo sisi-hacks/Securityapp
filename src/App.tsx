@@ -37,17 +37,15 @@ export default function App() {
   const handleNext = () => {
     setCurrentTipIndex(getRandomTipIndex(currentTipIndex));
   };
-  const handlePrevious = () => {
-    setCurrentTipIndex(getRandomTipIndex(currentTipIndex));
-  };
+  
   const handleShareTwitter = () => {
     if (!currentTip) return;
-    const text = encodeURIComponent(`web3 security tip: ${currentTip.text}. follow @A_bashira on X for more security tips and insights.`);
+    const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @A_bashira on X for more security tips and insights.`);
     window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
   };
   const handleShareFarcaster = () => {
     if (!currentTip) return;
-    const text = encodeURIComponent(`web3 security tip: ${currentTip.text}. follow @sisixoxo for more security tips and insights.`);
+    const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @sisixoxo for more security tips and insights.`);
     window.open(`https://warpcast.com/~/compose?text=${text}`, '_blank');
   };
 
