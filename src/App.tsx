@@ -14,8 +14,36 @@ function getRiskColor(importance: string) {
   }
 }
 
-const score = 80;
-const riskLevel = 6;
+function getSecurityScore(importance: string): number {
+  switch (importance) {
+    case 'critical': return 40;
+    case 'high': return 60;
+    case 'medium': return 80;
+    case 'low': return 95;
+    default: return 50;
+  }
+}
+
+function getRiskLevel(importance: string): number {
+  switch (importance) {
+    case 'critical': return 9;
+    case 'high': return 7;
+    case 'medium': return 4;
+    case 'low': return 2;
+    default: return 5;
+  }
+}
+
+function getImportanceEmoji(importance: string): string {
+  switch (importance) {
+    case 'critical': return '🚨';
+    case 'high': return '⚠️';
+    case 'medium': return '⚡';
+    case 'low': return '✅';
+    default: return 'ℹ️';
+  }
+}
+
 const maxRisk = 10;
 
 function getRandomTipIndex(excludeIndex?: number): number {
@@ -53,6 +81,10 @@ export default function App() {
     return <div style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>No tips available.</div>;
   }
 
+  const securityScore = getSecurityScore(currentTip.importance);
+  const riskLevel = getRiskLevel(currentTip.importance);
+  const importanceEmoji = getImportanceEmoji(currentTip.importance);
+
   return (
     <div style={{ minHeight: '100vh', background: '#181828', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 0 }}>
       <div style={{ background: '#23233a', color: '#fff', borderRadius: 18, boxShadow: '0 4px 24px #0002', maxWidth: 300, width: '100%', margin: '24px', padding: 20, position: 'relative' }}>
@@ -63,10 +95,10 @@ export default function App() {
         </div>
         {/* Tags */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-          <span style={{ background: '#ff1744', color: '#fff', borderRadius: 8, padding: '2px 10px', fontSize: 12, fontWeight: 600 }}>CRITICAL</span>
-          <span style={{ background: '#8b5cf6', color: '#fff', borderRadius: 8, padding: '2px 10px', fontSize: 12, fontWeight: 600 }}>WALLET</span>
+          <span style={{ background: '#ff1744', color: '#fff', borderRadius: 8, padding: '2px 10px', fontSize: 12, fontWeight: 600 }}>{currentTip.importance.toUpperCase()}</span>
+          <span style={{ background: '#8b5cf6', color: '#fff', borderRadius: 8, padding: '2px 10px', fontSize: 12, fontWeight: 600 }}>{currentTip.category.toUpperCase()}</span>
           <span style={{ background: '#ffd600', color: '#181828', borderRadius: 8, padding: '2px 10px', fontSize: 12, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>
-            <span role="img" aria-label="alert">⚠️</span> High Risk
+            <span role="img" aria-label="alert">{importanceEmoji}</span> {currentTip.importance.charAt(0).toUpperCase() + currentTip.importance.slice(1)} Risk
           </span>
         </div>
         {/* Main Tip */}
@@ -76,7 +108,7 @@ export default function App() {
           <div style={{ height: 10, borderRadius: 6, background: getRiskColor(currentTip.importance) }} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#bdbdbd', marginBottom: 10 }}>
-          <span>Security Score: {score}/100</span>
+          <span>Security Score: {securityScore}/100</span>
           <span>Risk Level: {riskLevel}/{maxRisk}</span>
         </div>
         {/* Buttons */}
