@@ -18,8 +18,16 @@ const score = 80;
 const riskLevel = 6;
 const maxRisk = 10;
 
+function getRandomTipIndex(excludeIndex?: number): number {
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * tips.length);
+  } while (randomIndex === excludeIndex);
+  return randomIndex;
+}
+
 export default function App() {
-  const [currentTipIndex, setCurrentTipIndex] = useState(0);
+  const [currentTipIndex, setCurrentTipIndex] = useState(getRandomTipIndex());
   const currentTip = tips.length > 0 ? tips[currentTipIndex] : undefined;
 
   useEffect(() => {
@@ -27,10 +35,10 @@ export default function App() {
   }, []);
 
   const handleNext = () => {
-    setCurrentTipIndex((prev) => (prev + 1) % tips.length);
+    setCurrentTipIndex(getRandomTipIndex(currentTipIndex));
   };
   const handlePrevious = () => {
-    setCurrentTipIndex((prev) => (prev - 1 + tips.length) % tips.length);
+    setCurrentTipIndex(getRandomTipIndex(currentTipIndex));
   };
   const handleShareTwitter = () => {
     if (!currentTip) return;
