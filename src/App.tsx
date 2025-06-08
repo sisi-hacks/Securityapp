@@ -49,7 +49,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#181828', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 0 }}>
-      <div style={{ background: '#23233a', color: '#fff', borderRadius: 18, boxShadow: '0 4px 24px #0002', maxWidth: 400, width: '100%', margin: '24px 0', padding: 20, position: 'relative' }}>
+      <div style={{ background: '#23233a', color: '#fff', borderRadius: 18, boxShadow: '0 4px 24px #0002', maxWidth: 300, width: '100%', margin: '24px', padding: 20, position: 'relative' }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
           <span style={{ color: '#bdbdbd', fontSize: 13 }}>Tip {currentTipIndex + 1} of {tips.length}</span>
