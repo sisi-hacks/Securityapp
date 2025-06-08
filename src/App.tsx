@@ -91,7 +91,6 @@ export default function App() {
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
           <span style={{ color: '#bdbdbd', fontSize: 13 }}>Tip {currentTipIndex + 1} of {tips.length}</span>
-          <span style={{ color: '#ffd600', fontSize: 20 }}>★</span>
         </div>
         {/* Tags */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
