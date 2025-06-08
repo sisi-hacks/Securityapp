@@ -3,8 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Mini App</title>
-  </head>
+    <meta name="fc:frame"
+    content='{
+      "version":"next",
+      "imageUrl":"https://securitywithsisi.vercel.app/frame-image.png",
+      "button":{
+        "title":"🔒 Get Security Tip",
+        "action":{
+          "type":"launch_frame",
+          "name":"Web3 Security Tips",
+          "url":"https://securitywithsisi.vercel.app/",
+          "splashImageUrl":"https://securitywithsisi.vercel.app/frame-image.png",
+          "splashBackgroundColor":"#181828"
+        }
+      }
+    }' />
+  <meta property="og:image" content="https://securitywithsisi.vercel.app/frame-image.png" />
+</head>
+    <title>Web3 Security Tips</title>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
