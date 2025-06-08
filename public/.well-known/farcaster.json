@@ -1,23 +1,24 @@
 {
-  "name": "Web3 Security Tips",
-  "description": "Daily Web3 security tips and best practices",
-  "image": "https://your-domain.com/frame-image.png",
-  "input": {
-    "text": "Search tips by keyword"
-  },
-  "buttons": [
-    {
-      "label": "Previous Tip",
-      "action": "post"
-    },
-    {
-      "label": "Next Tip",
-      "action": "post"
-    },
-    {
-      "label": "Share Tip",
-      "action": "post"
-    }
-  ],
-  "post_url": "https://your-domain.com/api/frame"
+  "frame": {
+    "version": "1",
+    "name": "Web3 Security Tips",
+    "iconUrl": "https://securitywithsisi.vercel.app/frame-image.png",
+    "homeUrl": "https://securitywithsisi.vercel.app/",
+    "imageUrl": "https://securitywithsisi.vercel.app/frame-image.png",
+    "buttonTitle": "🔒 Get Security Tip",
+    "splashImageUrl": "https://securitywithsisi.vercel.app/frame-image.png",
+    "splashBackgroundColor": "#181828",
+    "subtitle": "Daily Web3 security tips and best practices",
+    "description": "Get daily Web3 security tips and best practices to keep your crypto safe",
+    "primaryCategory": "utility",
+    "tags": ["security", "web3", "crypto", "defi", "blockchain"],
+    "heroImageUrl": "https://securitywithsisi.vercel.app/frame-image.png",
+    "tagline": "Stay safe in Web3",
+    "ogTitle": "Web3 Security Tips",
+    "ogDescription": "Daily Web3 security tips and best practices to keep your crypto safe",
+    "ogImageUrl": "https://securitywithsisi.vercel.app/frame-image.png",
+    "noindex": false
+  }
 } 
+
+

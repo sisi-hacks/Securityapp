@@ -38,7 +38,7 @@ export async function handleFrameAction(
   const currentTip = tips[newState.tipIndex];
 
   return {
-    image: `https://your-domain.com/tips/${currentTip.id}.png`,
+    image: `https://securitywithsisi.vercel.app/tips/${currentTip.id}.png`,
     buttons: [
       {
         label: "Previous Tip",
