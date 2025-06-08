@@ -69,12 +69,19 @@ export default function App() {
   const handleShareTwitter = () => {
     if (!currentTip) return;
     const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @A_bashira on X for more security tips and insights.`);
-    window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
+    const link = document.createElement('a');
+    link.href = `https://x.com/intent/tweet?text=${text}`;
+    link.target = '_blank';
+    link.click();
   };
+
   const handleShareFarcaster = () => {
     if (!currentTip) return;
     const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @sisixoxo for more security tips and insights.`);
-    window.open(`https://warpcast.com/~/compose?text=${text}`, '_blank');
+    const link = document.createElement('a');
+    link.href = `https://warpcast.com/~/compose?text=${text}`;
+    link.target = '_blank';
+    link.click();
   };
 
   if (!currentTip) {
