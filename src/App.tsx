@@ -65,7 +65,7 @@ export default function App() {
   const handleNext = () => {
     setCurrentTipIndex(getRandomTipIndex(currentTipIndex));
   };
-  
+
   const handleShareTwitter = () => {
     if (!currentTip) return;
     const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @A_bashira on X for more security tips and insights.`);
@@ -75,13 +75,14 @@ export default function App() {
     link.click();
   };
 
-  const handleShareFarcaster = () => {
+  const handleShareFarcaster = async () => {
     if (!currentTip) return;
-    const text = encodeURIComponent(`Web3 security tip: ${currentTip.text}. follow @sisixoxo for more security tips and insights.`);
-    const link = document.createElement('a');
-    link.href = `https://warpcast.com/~/compose?text=${text}`;
-    link.target = '_blank';
-    link.click();
+    const text = `Web3 security tip: ${currentTip.text}. follow @sisixoxo for more security tips and insights.`;
+
+    await sdk.actions.composeCast({
+      text: text,
+      close: true
+    });
   };
 
   if (!currentTip) {
@@ -128,14 +129,14 @@ export default function App() {
           Follow for more security insights
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginTop: 8 }}>
             <a href="https://x.com/A_bashira" target="_blank" rel="noopener noreferrer" style={{ color: '#1da1f2', fontSize: 22 }} aria-label="Twitter">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082A4.48 4.48 0 0 0 16.11 4c-2.48 0-4.49 2.01-4.49 4.49 0 .352.04.695.116 1.022C7.728 9.37 4.1 7.6 1.67 4.98a4.48 4.48 0 0 0-.61 2.26c0 1.56.795 2.94 2.01 3.75a4.48 4.48 0 0 1-2.03-.56v.06c0 2.18 1.55 4 3.6 4.42-.377.103-.775.16-1.185.16-.29 0-.57-.028-.845-.08.57 1.78 2.23 3.08 4.2 3.12A8.98 8.98 0 0 1 2 19.54a12.7 12.7 0 0 0 6.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.195-.004-.39-.013-.583A9.14 9.14 0 0 0 24 4.59a8.98 8.98 0 0 1-2.54.697z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082A4.48 4.48 0 0 0 16.11 4c-2.48 0-4.49 2.01-4.49 4.49 0 .352.04.695.116 1.022C7.728 9.37 4.1 7.6 1.67 4.98a4.48 4.48 0 0 0-.61 2.26c0 1.56.795 2.94 2.01 3.75a4.48 4.48 0 0 1-2.03-.56v.06c0 2.18 1.55 4 3.6 4.42-.377.103-.775.16-1.185.16-.29 0-.57-.028-.845-.08.57 1.78 2.23 3.08 4.2 3.12A8.98 8.98 0 0 1 2 19.54a12.7 12.7 0 0 0 6.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.195-.004-.39-.013-.583A9.14 9.14 0 0 0 24 4.59a8.98 8.98 0 0 1-2.54.697z" /></svg>
             </a>
             <a href="https://warpcast.com/sisixoxo" target="_blank" rel="noopener noreferrer" style={{ color: '#8b5cf6', fontSize: 22 }} aria-label="Warpcast">
-              <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><circle cx="16" cy="16" r="16" fill="#8b5cf6"/><text x="16" y="21" textAnchor="middle" fontSize="14" fill="#fff" fontFamily="Arial" fontWeight="bold">W</text></svg>
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><circle cx="16" cy="16" r="16" fill="#8b5cf6" /><text x="16" y="21" textAnchor="middle" fontSize="14" fill="#fff" fontFamily="Arial" fontWeight="bold">W</text></svg>
             </a>
             <a href="https://sisipepper.medium.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontSize: 22 }} aria-label="Medium">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
               </svg>
             </a>
           </div>
